@@ -1,0 +1,19 @@
+from src.providers.provider_a.provider_a_client import ProviderAClient
+from src.providers.provider_a.provider_a_auth import ProviderAAuth
+from src.providers.provider_a.provider_a_serializer import ProviderASerializer
+from src.providers.provider_a.provider_a_error_handler import ProviderAErrorHandler
+
+
+class ProviderAFactory:
+
+    def create_client(self):
+        return ProviderAClient()
+
+    def create_auth(self):
+        return ProviderAAuth()
+
+    def create_serializer(self):
+        return ProviderASerializer()
+
+    def create_error_handler(self):
+        return ProviderAErrorHandler()
