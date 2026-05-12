@@ -1,0 +1,19 @@
+from src.providers.provider_b.provider_b_client import ProviderBClient
+from src.providers.provider_b.provider_b_auth import ProviderBAuth
+from src.providers.provider_b.provider_b_serializer import ProviderBSerializer
+from src.providers.provider_b.provider_b_error_handler import ProviderBErrorHandler
+
+
+class ProviderBFactory:
+
+    def create_client(self):
+        return ProviderBClient()
+
+    def create_auth(self):
+        return ProviderBAuth()
+
+    def create_serializer(self):
+        return ProviderBSerializer()
+
+    def create_error_handler(self):
+        return ProviderBErrorHandler()
