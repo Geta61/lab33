@@ -1,0 +1,44 @@
+student-support-system/
+│
+├── README.md
+├── requirements.txt
+├── config.json
+│
+├── docs/
+│   └── uml/
+│       ├── architecture.puml
+│       └── architecture.png
+│
+├── src/
+│   ├── contracts/
+│   │   ├── messenger_client.py
+│   │   ├── auth_provider.py
+│   │   ├── serializer.py
+│   │   ├── error_handler.py
+│   │   └── integration_factory.py
+│   │
+│   ├── providers/
+│   │   ├── provider_a/
+│   │   │   ├── provider_a_factory.py
+│   │   │   ├── provider_a_client.py
+│   │   │   ├── provider_a_auth.py
+│   │   │   ├── provider_a_serializer.py
+│   │   │   └── provider_a_error_handler.py
+│   │   │
+│   │   └── provider_b/
+│   │       ├── provider_b_factory.py
+│   │       ├── provider_b_client.py
+│   │       ├── provider_b_auth.py
+│   │       ├── provider_b_serializer.py
+│   │       └── provider_b_error_handler.py
+│   │
+│   ├── services/
+│   │   └── notification_service.py
+│   │
+│   └── app.py
+│
+└── tests/
+    ├── test_provider_a_factory.py
+    ├── test_provider_b_factory.py
+    ├── test_notification_a.py
+    └── test_notification_b.py
