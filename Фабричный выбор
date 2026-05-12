@@ -1,0 +1,20 @@
+import json
+
+from src.providers.provider_a.provider_a_factory import ProviderAFactory
+from src.providers.provider_b.provider_b_factory import ProviderBFactory
+
+
+def load_factory():
+
+    with open("config.json") as f:
+        config = json.load(f)
+
+    provider = config["provider"]
+
+    if provider == "A":
+        return ProviderAFactory()
+
+    if provider == "B":
+        return ProviderBFactory()
+
+    raise ValueError("Unknown provider")
