@@ -1,0 +1,47 @@
+@startuml
+
+interface MessengerClient
+interface AuthenticationProvider
+interface MessageSerializer
+interface ErrorHandler
+
+interface IntegrationFactory {
+    +create_client()
+    +create_auth()
+    +create_serializer()
+    +create_error_handler()
+}
+
+class ProviderAFactory
+class ProviderBFactory
+
+class ProviderAClient
+class ProviderAAuth
+class ProviderASerializer
+class ProviderAErrorHandler
+
+class ProviderBClient
+class ProviderBAuth
+class ProviderBSerializer
+class ProviderBErrorHandler
+
+class NotificationService
+
+IntegrationFactory <|.. ProviderAFactory
+IntegrationFactory <|.. ProviderBFactory
+
+MessengerClient <|.. ProviderAClient
+MessengerClient <|.. ProviderBClient
+
+AuthenticationProvider <|.. ProviderAAuth
+AuthenticationProvider <|.. ProviderBAuth
+
+MessageSerializer <|.. ProviderASerializer
+MessageSerializer <|.. ProviderBSerializer
+
+ErrorHandler <|.. ProviderAErrorHandler
+ErrorHandler <|.. ProviderBErrorHandler
+
+NotificationService --> IntegrationFactory
+
+@enduml
