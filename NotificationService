@@ -1,0 +1,22 @@
+class NotificationService:
+
+    def __init__(self, factory):
+
+        self.client = factory.create_client()
+        self.auth = factory.create_auth()
+        self.serializer = factory.create_serializer()
+        self.error_handler = factory.create_error_handler()
+
+    def notify(self, text):
+
+        try:
+            token = self.auth.authenticate()
+
+            serialized = self.serializer.serialize(text)
+
+            self.client.send(serialized)
+
+            return token
+
+        except Exception as e:
+            return self.error_handler.handle(e)
